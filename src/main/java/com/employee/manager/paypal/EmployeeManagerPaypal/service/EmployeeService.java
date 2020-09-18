@@ -34,8 +34,7 @@ public class EmployeeService implements EmployeeServiceImpl {
     @Autowired
     private PassportRepository passportRepository;
 
-    @Autowired
-    private DozerBeanMapper dozerBeanMapper;
+    private DozerBeanMapper dozerBeanMapper= new DozerBeanMapper();
 
 
     /**
