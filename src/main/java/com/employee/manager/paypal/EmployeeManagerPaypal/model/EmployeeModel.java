@@ -19,10 +19,11 @@ import java.util.List;
     @Entity
     public class EmployeeModel {
 
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence-generator")
+        @SequenceGenerator(name = "sequence-generator", sequenceName = "employee_sequence", allocationSize = 1, initialValue = 1)
         @Id
         @Column(name = "emp_id")
-        private long empId;
+        private int empId;
         @Column(name = "emp_name")
         private String empName;
         @Column(name = "age")

@@ -9,16 +9,17 @@ import com.employee.manager.paypal.EmployeeManagerPaypal.model.AddressModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.dozer.Mapping;
 
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class EmployeeVO {
-    private long empId;
-    private String empName;
+    private int empId;
+    @Mapping("empName")
+    private String Name;
     private int age;
 
     private List<AddressVO> addressList;

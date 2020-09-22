@@ -24,5 +24,16 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(EmployeeExists.class)
+    public ResponseEntity<Object> handleDataAlreayExists(
+            EmployeeExists employeeExists, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", employeeExists.getMessage());
+
+        return new ResponseEntity<>(body, HttpStatus.IM_USED);
+    }
+
 }
 
